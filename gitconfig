@@ -1,0 +1,9 @@
+[user]
+	email = joe@pjuu.com
+	name = Joe Doherty
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[push]
+	default = current
