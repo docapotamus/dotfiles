@@ -1,4 +1,4 @@
-"vundle
+" vundle
 set nocompatible
 filetype off
 
@@ -9,19 +9,61 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'docapotamus/jellybeans.vim'
 
-" language specific
-Plugin 'rust-lang/rust.vim'
-Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" languages
+Plugin 'davejlong/cf-utils.vim' " CFML
+Plugin 'fatih/vim-go' " Go
+Plugin 'elixir-lang/vim-elixir' " Elixir
 
 call vundle#end()
 filetype plugin indent on
 
+colorscheme jellybeans
+let g:jellybeans_use_term_italics=0
+let g:jellybeans_use_gui_italics=0
+
+let g:ctrlp_cache_dir='~/.vim/ctrlp/cache'
+
+syntax on
+set t_Co=256
+set bg=dark
+
+set noswapfile
+
+" if executable('ag')
+"   Use ag over grep
+"   set grepprg=ag\ --nogroup\ --nocolor
+
+"   Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+"   let g:ctrlp_user_command = 'ag -Q -l --nocolor -g "%s"'
+
+"   ag is fast enough that CtrlP doesn't need to cache
+"   let g:ctrlp_use_caching = 0
+" endif
+
+" clean up gvim
+" For work Windows stuff
+if has("gui_running")
+    " accidently pressing the mouse is annoying
+    set mouse=c
+    " remove surrounding options
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
+    " pretty font
+    set guifont=Lucida_Console:h10
+    " NOISES!
+    set noerrorbells visualbell
+endif
+
 " play nice
 set backspace=2
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:?\ ,eol:¬
 
 " line numbers
 set number
@@ -35,6 +77,12 @@ set ruler
 set incsearch
 set hlsearch
 
+" follow the leader
+let mapleader=","
+
+map <Leader>x :bd<CR>
+map <Leader><C-x> :bufdo bd<CR>
+
 " tabs and stuff
 set tabstop=4
 set expandtab
@@ -44,11 +92,21 @@ set shiftwidth=4
 " specific settings for file types
 autocmd FileType python setl ts=4 sw=4 sts=4 cc=80 et
 autocmd FileType go setl ts=4 sw=4 sts=4 noet
+autocmd FileType elixir setl ts=2 sw=2 sts=2 et
+autocmd FileType cfml setl ts=4 sw=4 sts=4 noet
 
-" colours
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Jump buffer list
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+" Highlight current position
 set cursorline
-
-syntax on
-set t_Co=256
-set background=dark
-colorscheme solarized
+set cursorcolumn
