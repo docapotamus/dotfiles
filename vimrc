@@ -9,9 +9,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'
-Plugin 'docapotamus/jellybeans.vim'
+Plugin 'nanotech/jellybeans.vim'
 
-Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " languages
@@ -32,18 +31,10 @@ syntax on
 set t_Co=256
 set bg=dark
 
+" annoying files
 set noswapfile
-
-" if executable('ag')
-"   Use ag over grep
-"   set grepprg=ag\ --nogroup\ --nocolor
-
-"   Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-"   let g:ctrlp_user_command = 'ag -Q -l --nocolor -g "%s"'
-
-"   ag is fast enough that CtrlP doesn't need to cache
-"   let g:ctrlp_use_caching = 0
-" endif
+set nobackup
+set nowritebackup
 
 " clean up gvim
 " For work Windows stuff
@@ -94,6 +85,7 @@ autocmd FileType python setl ts=4 sw=4 sts=4 cc=80 et
 autocmd FileType go setl ts=4 sw=4 sts=4 noet
 autocmd FileType elixir setl ts=2 sw=2 sts=2 et
 autocmd FileType cfml setl ts=4 sw=4 sts=4 noet
+autocmd FileType javascript setl ts=2 sw=2 sts=2 et
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
