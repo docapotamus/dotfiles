@@ -17,6 +17,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davejlong/cf-utils.vim' " CFML
 Plugin 'fatih/vim-go' " Go
 Plugin 'elixir-lang/vim-elixir' " Elixir
+Plugin 'rust-lang/rust.vim' " Rust
 
 call vundle#end()
 filetype plugin indent on
