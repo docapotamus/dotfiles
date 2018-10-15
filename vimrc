@@ -27,6 +27,7 @@ let g:jellybeans_use_term_italics=0
 let g:jellybeans_use_gui_italics=0
 
 let g:ctrlp_cache_dir='~/.vim/ctrlp/cache'
+let g:ctrlp_custom_ignore = 'node_modules/'
 
 syntax on
 set t_Co=256
