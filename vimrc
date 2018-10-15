@@ -9,9 +9,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'
-Plugin 'nanotech/jellybeans.vim'
-
+Plugin 'morhetz/gruvbox'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
 
 " languages
 Plugin 'davejlong/cf-utils.vim' " CFML
@@ -22,7 +22,7 @@ Plugin 'rust-lang/rust.vim' " Rust
 call vundle#end()
 filetype plugin indent on
 
-colorscheme jellybeans
+colorscheme gruvbox
 let g:jellybeans_use_term_italics=0
 let g:jellybeans_use_gui_italics=0
 
