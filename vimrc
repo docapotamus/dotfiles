@@ -8,16 +8,17 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'morhetz/gruvbox'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 
 " languages
-Plugin 'davejlong/cf-utils.vim' " CFML
+Plugin 'pangloss/vim-javascript' " Javascript
+Plugin 'posva/vim-vue' " VueJS
 Plugin 'fatih/vim-go' " Go
-Plugin 'elixir-lang/vim-elixir' " Elixir
 Plugin 'rust-lang/rust.vim' " Rust
+Plugin 'digitaltoad/vim-pug.git' " Pug
 
 call vundle#end()
 filetype plugin indent on
