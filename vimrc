@@ -88,7 +88,7 @@ autocmd FileType python setl ts=4 sw=4 sts=4 cc=80 et
 autocmd FileType go setl ts=4 sw=4 sts=4 noet
 autocmd FileType elixir setl ts=2 sw=2 sts=2 et
 autocmd FileType cfml setl ts=4 sw=4 sts=4 noet
-autocmd FileType javascript setl ts=2 sw=2 sts=2 et
+autocmd FileType javascript setl ts=2 sw=2 sts=2 cc=100 et
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
