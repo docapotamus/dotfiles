@@ -12,6 +12,7 @@ Plugin 'w0rp/ale'
 Plugin 'morhetz/gruvbox'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'mattn/emmet-vim'
 
 " languages
 Plugin 'pangloss/vim-javascript' " Javascript
@@ -19,6 +20,7 @@ Plugin 'posva/vim-vue' " VueJS
 Plugin 'fatih/vim-go' " Go
 Plugin 'rust-lang/rust.vim' " Rust
 Plugin 'digitaltoad/vim-pug.git' " Pug
+Plugin 'elmcast/elm-vim' " Elm
 
 call vundle#end()
 filetype plugin indent on
@@ -28,11 +30,20 @@ let g:jellybeans_use_term_italics=0
 let g:jellybeans_use_gui_italics=0
 
 let g:ctrlp_cache_dir='~/.vim/ctrlp/cache'
-let g:ctrlp_custom_ignore = 'node_modules/'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|node_modules/|venv/)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'jsformatter'
 
 syntax on
 set t_Co=256
 set bg=dark
+
+set clipboard=unnamed
 
 " annoying files
 set noswapfile
@@ -74,8 +85,25 @@ set hlsearch
 " follow the leader
 let mapleader=","
 
-map <Leader>x :bd<CR>
-map <Leader><C-x> :bufdo bd<CR>
+" buffer move bindings
+set hidden
+
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
 
 " tabs and stuff
 set tabstop=4
@@ -88,7 +116,10 @@ autocmd FileType python setl ts=4 sw=4 sts=4 cc=80 et
 autocmd FileType go setl ts=4 sw=4 sts=4 noet
 autocmd FileType elixir setl ts=2 sw=2 sts=2 et
 autocmd FileType cfml setl ts=4 sw=4 sts=4 noet
-autocmd FileType javascript setl ts=2 sw=2 sts=2 cc=100 et
+autocmd FileType javascript setl ts=4 sw=4 sts=4 cc=100 et
+autocmd FileType elm setl ts=4 sw=4 sts=4 cc=80 et
+autocmd FileType yaml setl ts=2 sw=2 sts=2 et
+autocmd FileType tf setl ts=2 sw=2 sts=2 et
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
