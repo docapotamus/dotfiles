@@ -1,10 +1,12 @@
 #/bin/sh
 
+if [ ! -d ~/.tmux/plugins/tpm ] ; then
+	git clone https://github.com/tmux-plugins/tpm ~/.tmxu/plugins/tpm
+fi
+
 cp ./tmux.conf ~/.tmux.conf
 cp ./gitconfig ~/.gitconfig
 
-# Vim
-if [ ! -d ~/.vim/bundle/Vundle.vim ] ; then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-cp ./vimrc ~/.vimrc
+# Neovim
+mkdir -p ~/.config/nvim
+cp ./nvim/* ~/.config/nvim/
